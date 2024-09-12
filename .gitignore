@@ -13,6 +13,7 @@ logs/
 # Ignore specific file
 Virtual Env.txt
 sql_practice - Copy.txt
+git.ipynb
 
 
 # Ignore system files
