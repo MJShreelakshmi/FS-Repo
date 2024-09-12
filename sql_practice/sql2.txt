@@ -1,0 +1,161 @@
+SQL>  select 500000 from dept;
+
+    500000                                                                      
+----------                                                                      
+    500000                                                                      
+    500000                                                                      
+    500000                                                                      
+    500000                                                                      
+
+SQL> select '08-MAY-24' from dept;
+
+'08-MAY-2                                                                       
+---------                                                                       
+08-MAY-24                                                                       
+08-MAY-24                                                                       
+08-MAY-24                                                                       
+08-MAY-24                                                                       
+
+SQL> select '08-MAY-24' from dual;
+
+'08-MAY-2                                                                       
+---------                                                                       
+08-MAY-24                                                                       
+
+SQL> select 'JYOTHSNA' from dual;
+
+'JYOTHSN                                                                        
+--------                                                                        
+JYOTHSNA                                                                        
+
+SQL> select 44||99 from dual;
+
+44||                                                                            
+----                                                                            
+4499                                                                            
+
+SQL> select 'SQL'||55 from dual;
+
+'SQL'                                                                           
+-----                                                                           
+SQL55                                                                           
+
+SQL> select 'SQL||'PLUS' from dual;
+ERROR:
+ORA-01756: quoted string not properly terminated 
+
+
+SQL> selct 'sql'||'plus" from dual;
+SP2-0734: unknown command beginning "selct 'sql..." - rest of line ignored.
+SQL> selct 'sql'||'plus' from dual;
+SP2-0734: unknown command beginning "selct 'sql..." - rest of line ignored.
+SQL> select 'sql'||'plus' from dual;
+
+'SQL'||                                                                         
+-------                                                                         
+sqlplus                                                                         
+
+SQL> select ename||sal from dept;
+select ename||sal from dept
+              *
+ERROR at line 1:
+ORA-00904: "SAL": invalid identifier 
+
+
+SQL> select ename||sal from emp;
+
+ENAME||SAL                                                                      
+--------------------------------------------------                              
+SMITH800                                                                        
+ALLEN1600                                                                       
+WARD1250                                                                        
+JONES2975                                                                       
+MARTIN1250                                                                      
+BLAKE2850                                                                       
+CLARK2450                                                                       
+SCOTT3000                                                                       
+KING5000                                                                        
+TURNER1500                                                                      
+ADAMS1100                                                                       
+
+ENAME||SAL                                                                      
+--------------------------------------------------                              
+JAMES950                                                                        
+FORD3000                                                                        
+MILLER1300                                                                      
+
+14 rows selected.
+
+SQL> select ename||'is woking as a'||Job||'in dept'|| DEPTNO FROM EMP;
+
+ENAME||'ISWOKINGASA'||JOB||'INDEPT'||DEPTNO                                     
+--------------------------------------------------------------------------------
+SMITHis woking as aCLERKin dept20                                               
+ALLENis woking as aSALESMANin dept30                                            
+WARDis woking as aSALESMANin dept30                                             
+JONESis woking as aMANAGERin dept20                                             
+MARTINis woking as aSALESMANin dept30                                           
+BLAKEis woking as aMANAGERin dept30                                             
+CLARKis woking as aMANAGERin dept10                                             
+SCOTTis woking as aANALYSTin dept20                                             
+KINGis woking as aPRESIDENTin dept10                                            
+TURNERis woking as aSALESMANin dept30                                           
+ADAMSis woking as aCLERKin dept20                                               
+
+ENAME||'ISWOKINGASA'||JOB||'INDEPT'||DEPTNO                                     
+--------------------------------------------------------------------------------
+JAMESis woking as aCLERKin dept30                                               
+FORDis woking as aANALYSTin dept20                                              
+MILLERis woking as aCLERKin dept10                                              
+
+14 rows selected.
+
+SQL> select ename||'is woking as a'||Job||'and earning salary more than'||sal||'in dept'||deptno from emp;
+
+ENAME||'ISWOKINGASA'||JOB||'ANDEARNINGSALARYMORETHAN'||SAL||'INDEPT'||DEPTNO    
+--------------------------------------------------------------------------------
+SMITHis woking as aCLERKand earning salary more than800in dept20                
+ALLENis woking as aSALESMANand earning salary more than1600in dept30            
+WARDis woking as aSALESMANand earning salary more than1250in dept30             
+JONESis woking as aMANAGERand earning salary more than2975in dept20             
+MARTINis woking as aSALESMANand earning salary more than1250in dept30           
+BLAKEis woking as aMANAGERand earning salary more than2850in dept30             
+CLARKis woking as aMANAGERand earning salary more than2450in dept10             
+SCOTTis woking as aANALYSTand earning salary more than3000in dept20             
+KINGis woking as aPRESIDENTand earning salary more than5000in dept10            
+TURNERis woking as aSALESMANand earning salary more than1500in dept30           
+ADAMSis woking as aCLERKand earning salary more than1100in dept20               
+
+ENAME||'ISWOKINGASA'||JOB||'ANDEARNINGSALARYMORETHAN'||SAL||'INDEPT'||DEPTNO    
+--------------------------------------------------------------------------------
+JAMESis woking as aCLERKand earning salary more than950in dept30                
+FORDis woking as aANALYSTand earning salary more than3000in dept20              
+MILLERis woking as aCLERKand earning salary more than1300in dept10              
+
+14 rows selected.
+
+SQL> select ename||' is woking as a '||Job||' and earning salary more than '||sal||' in dept '||deptno from emp;
+
+ENAME||'ISWOKINGASA'||JOB||'ANDEARNINGSALARYMORETHAN'||SAL||'INDEPT'||DEPTNO    
+--------------------------------------------------------------------------------
+SMITH is woking as a CLERK and earning salary more than 800 in dept 20          
+ALLEN is woking as a SALESMAN and earning salary more than 1600 in dept 30      
+WARD is woking as a SALESMAN and earning salary more than 1250 in dept 30       
+JONES is woking as a MANAGER and earning salary more than 2975 in dept 20       
+MARTIN is woking as a SALESMAN and earning salary more than 1250 in dept 30     
+BLAKE is woking as a MANAGER and earning salary more than 2850 in dept 30       
+CLARK is woking as a MANAGER and earning salary more than 2450 in dept 10       
+SCOTT is woking as a ANALYST and earning salary more than 3000 in dept 20       
+KING is woking as a PRESIDENT and earning salary more than 5000 in dept 10      
+TURNER is woking as a SALESMAN and earning salary more than 1500 in dept 30     
+ADAMS is woking as a CLERK and earning salary more than 1100 in dept 20         
+
+ENAME||'ISWOKINGASA'||JOB||'ANDEARNINGSALARYMORETHAN'||SAL||'INDEPT'||DEPTNO    
+--------------------------------------------------------------------------------
+JAMES is woking as a CLERK and earning salary more than 950 in dept 30          
+FORD is woking as a ANALYST and earning salary more than 3000 in dept 20        
+MILLER is woking as a CLERK and earning salary more than 1300 in dept 10        
+
+14 rows selected.
+
+SQL> spool off

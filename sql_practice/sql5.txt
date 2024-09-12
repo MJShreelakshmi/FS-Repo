@@ -1,0 +1,61 @@
+SQL> select ename from emp where job in ('SALESMAN', 'ANALYST');
+
+ENAME                                                                           
+----------                                                                      
+ALLEN                                                                           
+WARD                                                                            
+MARTIN                                                                          
+SCOTT                                                                           
+TURNER                                                                          
+FORD                                                                            
+
+6 rows selected.
+
+SQL> SELECT EMPNO, ENAME, HIREDATE FROM EMP WHERE NOT DEPTNO IN (10,20);
+
+     EMPNO ENAME      HIREDATE                                                  
+---------- ---------- ---------                                                 
+      7499 ALLEN      20-FEB-81                                                 
+      7521 WARD       22-FEB-81                                                 
+      7654 MARTIN     28-SEP-81                                                 
+      7698 BLAKE      01-MAY-81                                                 
+      7844 TURNER     08-SEP-81                                                 
+      7900 JAMES      03-DEC-81                                                 
+
+6 rows selected.
+
+SQL> SELECT EMPNO, ENAME, HIREDATE , DEPTNO FROM EMP  WHERE NOT DEPTNO IN (10,20);
+
+     EMPNO ENAME      HIREDATE      DEPTNO                                      
+---------- ---------- --------- ----------                                      
+      7499 ALLEN      20-FEB-81         30                                      
+      7521 WARD       22-FEB-81         30                                      
+      7654 MARTIN     28-SEP-81         30                                      
+      7698 BLAKE      01-MAY-81         30                                      
+      7844 TURNER     08-SEP-81         30                                      
+      7900 JAMES      03-DEC-81         30                                      
+
+6 rows selected.
+
+SQL> SELECT * FROM DEPT WHERE DNAME IN ('ACCOUNTING, 'SALES', 'RESEARCH');
+ERROR:
+ORA-01756: quoted string not properly terminated 
+
+
+SQL> SELECT * FROM DEPT WHERE DNAME IN ('ACCOUNTING
+  2  ' ,'SALES', 'RESEARCH');
+
+    DEPTNO DNAME          LOC                                                   
+---------- -------------- -------------                                         
+        20 RESEARCH       DALLAS                                                
+        30 SALES          CHICAGO                                               
+
+SQL>  SELECT * FROM DEPT WHERE DNAME IN ('ACCOUNTING','SALES', 'RESEARCH');
+
+    DEPTNO DNAME          LOC                                                   
+---------- -------------- -------------                                         
+        10 ACCOUNTING     NEW YORK                                              
+        20 RESEARCH       DALLAS                                                
+        30 SALES          CHICAGO                                               
+
+SQL> SPOOL OFF
