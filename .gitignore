@@ -1,0 +1,30 @@
+# Ignore all .log files
+*.log
+
+#Ignore the .idea files
+*.idea
+
+#Ignore all the OneNote ( Open Notebook) files
+*Open Notebook
+
+# Ignore the logs directory
+logs/
+
+# Ignore specific file
+Virtual Env.txt
+sql_practice - Copy.txt
+
+
+# Ignore system files
+.DS_Store
+
+# Ignore node_modules directory
+node_modules/
+
+# Ignore Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore Python cache files
+*.pyc
+__pycache__/
+
