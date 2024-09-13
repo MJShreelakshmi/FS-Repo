@@ -1,0 +1,204 @@
+<!--
+<script>
+    {
+        console.log(0 && 'jsp')  // 0
+        console.log(0 || 'jsp') // jsp
+        console.log(0 && undefined) // und
+        
+        
+         console.log(1 && null) // true && false -- > null
+         console.log(null && 1) // false && true -- > null
+         console.log(1 && 'jsp') // jsp
+        
+        console.log(1 && 'jsp' && null && 'JS' && NaN)
+      //            1 && jsp -- > jsp; jsp && null -- > null ; only null further  
+}
+</script>
+    
+
+<script>
+    main();//function call
+    function main()
+    {
+        let amt = 4800;
+     
+        if (amt>=2000)
+        {
+            let count2000 = Math.trunc(amt/2000);
+            console.log(`2000 * ${count2000} = ${2000*count2000}`);
+            amt=amt%2000;
+        }
+        
+        if (amt>=500)
+        {
+            let count500 = Math.trunc(amt/500);
+            console.log(`500 * ${count500} = ${500*count500}`);
+            amt=amt%500;
+        }
+        if (amt>=200)
+        {
+            let count200 = Math.trunc(amt/200);
+            console.log(`200 * ${count200} = ${200*count200}`);
+            amt=amt%200;
+        }
+        if (amt>=100)
+        {
+            let count100 = Math.trunc(amt/100);
+            console.log(`100 * ${count100} = ${100*count100}`);
+        }
+     
+        console.log(`Total amount is ${count2000*2000 + count500*500 + count200*200 + count100*100}`) 
+        
+        
+    }
+</script>
+
+
+<script>
+    main();//function call
+    function main()
+    {
+        let y = 2000;
+        let m=2;
+     
+        if (m==1 || m==3 || m==5 || m==7 || m==8 || m==10 || m==12)
+        {
+            console.log('31 Days')
+        }
+        
+        else if (m==4 || m==6 || m==9 || m==11)
+        {
+            console.log('30 days');
+        }
+        
+        else if (m==2)
+        {
+        if ((y%400==0) || (y%4===0 && y%100!=0))
+            console.log('29 Days')
+        
+        }
+        else
+        {
+            console.log('28 Days')
+        }
+        
+    }
+</script>
+
+
+<script>
+    main();//function call
+    function main()
+    {
+        let d1 = new Date();
+        let day = d1.getDay();
+        //alert(day);
+        //console.log(day)
+        if (day == 0)
+        {
+            console.log(`Today is Sunday`);
+        }
+        if (day ==1)
+        {
+            console.log(`Today is Monday`)
+        }
+        if (day ==2)
+        {
+            console.log(`Today is Tuesday`)
+        }
+        if (day ==3)
+        {
+            console.log(`Today is Wednesday`)
+        }
+        if (day ==4)
+        {
+            console.log(`Today is Thurssday`)
+        }
+        if (day ==5)
+        {
+            console.log(`Today is Friday`)
+        }
+        if (day ==6)
+        {
+            console.log(`Today is Saturday`)
+        }
+        
+    }
+</script>
+
+
+<script>
+    main();//function call
+    function main()
+    {
+        let d1 = new Date();
+        let day = d1.getDay();
+        //alert(day);
+        //console.log(day)
+        let toDay='Today is ';
+        
+        switch(day)
+        {
+            case 0:
+                toDay+='Sunday';
+                break;
+            case 1:
+                toDay+='Monday';
+                break
+            case 2:
+                toDay+='Tuesday';
+                break
+            case 3:
+                toDay+='Wednesday';
+                break
+            case 4:
+                toDay+='Thursday';
+                break
+            case 5:
+                toDay+='Friday';
+                break
+            case 6:
+                toDay+='Saturday';
+                break
+        }
+        
+    }
+</script>
+
+-->
+
+<script>
+    main();
+    function main()
+    {
+    let n=Number(prompt('Enter the number: ')) 
+    for (i =1; i<=n; i++)
+        {
+    console.log("I LOVE INDIA")
+        }
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

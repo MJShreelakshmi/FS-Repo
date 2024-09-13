@@ -1,0 +1,536 @@
+SQL> select replace('JAVA', 'AV', 'SQL') FROM DUAL;
+
+REPLA                                                                           
+-----                                                                           
+JSQLA                                                                           
+
+SQL> select replace('JAVA', 'AVJ','SQL') FROM DUAL;
+
+REPL                                                                            
+----                                                                            
+JAVA                                                                            
+
+SQL>  select replace('JAVAVAVAV', 'AV', 'SQL') FROM DUAL;
+
+REPLACE('JAVA                                                                   
+-------------                                                                   
+JSQLSQLSQLSQL                                                                   
+
+SQL>  select replace('JAVA', 'AV', 'SQL') FROM DUAL;
+
+REPLA                                                                           
+-----                                                                           
+JSQLA                                                                           
+
+SQL> select replace('JAVA', 'A', 'SQL') FROM DUAL;
+
+REPLACE(                                                                        
+--------                                                                        
+JSQLVSQL                                                                        
+
+SQL>  SELECT REPLACE('JAVA', 'JA') FROM DUAL;
+
+RE                                                                              
+--                                                                              
+VA                                                                              
+
+SQL> selelct instr('developers', 3,2) from dual;
+SP2-0734: unknown command beginning "selelct in..." - rest of line ignored.
+SQL> select  instr('developers', 3,2) from dual;
+
+INSTR('DEVELOPERS',3,2)                                                         
+-----------------------                                                         
+                      0                                                         
+
+SQL> select  instr('developers', 3,1) from dual;
+
+INSTR('DEVELOPERS',3,1)                                                         
+-----------------------                                                         
+                      0                                                         
+
+SQL>  select  instr('developers','e', 3,2) from dual;
+
+INSTR('DEVELOPERS','E',3,2)                                                     
+---------------------------                                                     
+                          8                                                     
+
+SQL> select  instr('developers','e', 3,3) from dual;
+
+INSTR('DEVELOPERS','E',3,3)                                                     
+---------------------------                                                     
+                          0                                                     
+
+SQL> select instr('developers', 'e') from dual;
+
+INSTR('DEVELOPERS','E')                                                         
+-----------------------                                                         
+                      2                                                         
+
+SQL> select replace('developers', 've', 'va' ) from dual;
+
+REPLACE('D                                                                      
+----------                                                                      
+devalopers                                                                      
+
+SQL> select translate('developers', 've', 'va') from dual;
+
+TRANSLATE(                                                                      
+----------                                                                      
+davalopars                                                                      
+
+SQL> select translate('developers', 'sl', 'kj') from dual;
+
+TRANSLATE(                                                                      
+----------                                                                      
+devejoperk                                                                      
+
+SQL> select translate('developers', 'dlv', 'fg') from dual;
+
+TRANSLATE                                                                       
+---------                                                                       
+feegopers                                                                       
+
+SQL> select comm, nvl(comm, 800) from dual;
+select comm, nvl(comm, 800) from dual
+                 *
+ERROR at line 1:
+ORA-00904: "COMM": invalid identifier 
+
+
+SQL> select comm, nvl(comm, 800) from emp;
+
+      COMM NVL(COMM,800)                                                        
+---------- -------------                                                        
+                     800                                                        
+       300           300                                                        
+       500           500                                                        
+                     800                                                        
+      1400          1400                                                        
+                     800                                                        
+                     800                                                        
+                     800                                                        
+                     800                                                        
+         0             0                                                        
+                     800                                                        
+
+      COMM NVL(COMM,800)                                                        
+---------- -------------                                                        
+                     800                                                        
+                     800                                                        
+                     800                                                        
+
+14 rows selected.
+
+SQL> select comm, nvl2(comm, 800, 1000) from emp;
+
+      COMM NVL2(COMM,800,1000)                                                  
+---------- -------------------                                                  
+                          1000                                                  
+       300                 800                                                  
+       500                 800                                                  
+                          1000                                                  
+      1400                 800                                                  
+                          1000                                                  
+                          1000                                                  
+                          1000                                                  
+                          1000                                                  
+         0                 800                                                  
+                          1000                                                  
+
+      COMM NVL2(COMM,800,1000)                                                  
+---------- -------------------                                                  
+                          1000                                                  
+                          1000                                                  
+                          1000                                                  
+
+14 rows selected.
+
+SQL> select to_date('2024-MAY-30', 'YYYY-MM-DD') FROM DUAL;
+
+TO_DATE('                                                                       
+---------                                                                       
+30-MAY-24                                                                       
+
+SQL> select to_date('2024-MAY-30', 'YYYY-DD-MM') FROM DUAL;
+select to_date('2024-MAY-30', 'YYYY-DD-MM') FROM DUAL
+               *
+ERROR at line 1:
+ORA-01858: a non-numeric character was found where a numeric was expected 
+
+
+SQL> select to_date('2024-MAY-30', 'YYYY-MON-DD') FROM DUAL;
+
+TO_DATE('                                                                       
+---------                                                                       
+30-MAY-24                                                                       
+
+SQL> SELECT * FROM EMP;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7369 SMITH      CLERK           7902 17-DEC-80        800                 
+        20                                                                      
+                                                                                
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300      
+        30                                                                      
+                                                                                
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500      
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7566 JONES      MANAGER         7839 02-APR-81       2975                 
+        20                                                                      
+                                                                                
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400      
+        30                                                                      
+                                                                                
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                 
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                 
+        10                                                                      
+                                                                                
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                 
+        20                                                                      
+                                                                                
+      7839 KING       PRESIDENT            17-NOV-81       5000                 
+        10                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0      
+        30                                                                      
+                                                                                
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                 
+        20                                                                      
+                                                                                
+      7900 JAMES      CLERK           7698 03-DEC-81        950                 
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                 
+        20                                                                      
+                                                                                
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                 
+        10                                                                      
+                                                                                
+
+14 rows selected.
+
+SQL> SELECT * FROM EMP LIMIT 1;
+SELECT * FROM EMP LIMIT 1
+                        *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> SLECT * FROM EMP ORDER BY EMPNO DESC LIMIT 1 ;
+SP2-0734: unknown command beginning "SLECT * FR..." - rest of line ignored.
+SQL> SELECT * FROM EMP ORDER BY EMPNO DESC;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                 
+        10                                                                      
+                                                                                
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                 
+        20                                                                      
+                                                                                
+      7900 JAMES      CLERK           7698 03-DEC-81        950                 
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                 
+        20                                                                      
+                                                                                
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0      
+        30                                                                      
+                                                                                
+      7839 KING       PRESIDENT            17-NOV-81       5000                 
+        10                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                 
+        20                                                                      
+                                                                                
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                 
+        10                                                                      
+                                                                                
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                 
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400      
+        30                                                                      
+                                                                                
+      7566 JONES      MANAGER         7839 02-APR-81       2975                 
+        20                                                                      
+                                                                                
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500      
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300      
+        30                                                                      
+                                                                                
+      7369 SMITH      CLERK           7902 17-DEC-80        800                 
+        20                                                                      
+                                                                                
+
+14 rows selected.
+
+SQL> SELECT * FROM EMP ORDER BY EMPNO DESC LIMIT 1;
+SELECT * FROM EMP ORDER BY EMPNO DESC LIMIT 1
+                                      *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> SELECT * FROM EMP ORDER BY EMPNO DESC OFFSET 2 LIMIT 1;
+SELECT * FROM EMP ORDER BY EMPNO DESC OFFSET 2 LIMIT 1
+                                      *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL>  SELECT * FROM EMP ORDER BY EMPNO DESC LIMIT 2;
+ SELECT * FROM EMP ORDER BY EMPNO DESC LIMIT 2
+                                       *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> SELECT TO_CHAR(HIREDATE, 'DD-MM-YYYY') FROM EMP;
+
+TO_CHAR(HI                                                                      
+----------                                                                      
+17-12-1980                                                                      
+20-02-1981                                                                      
+22-02-1981                                                                      
+02-04-1981                                                                      
+28-09-1981                                                                      
+01-05-1981                                                                      
+09-06-1981                                                                      
+19-04-1987                                                                      
+17-11-1981                                                                      
+08-09-1981                                                                      
+23-05-1987                                                                      
+
+TO_CHAR(HI                                                                      
+----------                                                                      
+03-12-1981                                                                      
+03-12-1981                                                                      
+23-01-1982                                                                      
+
+14 rows selected.
+
+SQL>  SELECT TO_CHAR(HIREDATE, 'YYYY-MON-DD') FROM EMP;
+
+TO_CHAR(HIR                                                                     
+-----------                                                                     
+1980-DEC-17                                                                     
+1981-FEB-20                                                                     
+1981-FEB-22                                                                     
+1981-APR-02                                                                     
+1981-SEP-28                                                                     
+1981-MAY-01                                                                     
+1981-JUN-09                                                                     
+1987-APR-19                                                                     
+1981-NOV-17                                                                     
+1981-SEP-08                                                                     
+1987-MAY-23                                                                     
+
+TO_CHAR(HIR                                                                     
+-----------                                                                     
+1981-DEC-03                                                                     
+1981-DEC-03                                                                     
+1982-JAN-23                                                                     
+
+14 rows selected.
+
+SQL> SELECT TO_CHAR(HIREDATE, 'YYYY-DD-MON') FROM EMP;
+
+TO_CHAR(HIR                                                                     
+-----------                                                                     
+1980-17-DEC                                                                     
+1981-20-FEB                                                                     
+1981-22-FEB                                                                     
+1981-02-APR                                                                     
+1981-28-SEP                                                                     
+1981-01-MAY                                                                     
+1981-09-JUN                                                                     
+1987-19-APR                                                                     
+1981-17-NOV                                                                     
+1981-08-SEP                                                                     
+1987-23-MAY                                                                     
+
+TO_CHAR(HIR                                                                     
+-----------                                                                     
+1981-03-DEC                                                                     
+1981-03-DEC                                                                     
+1982-23-JAN                                                                     
+
+14 rows selected.
+
+SQL> SELECT * FROM EMP WHERE TO_CHAR(HIREDATE, 'MM') = 5;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                 
+        30                                                                      
+                                                                                
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                 
+        20                                                                      
+                                                                                
+
+SQL> SELECT * FROM EMP WHERE TO_CHAR(HIREDATE, 'MON') = 'JUN';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                 
+        10                                                                      
+                                                                                
+
+SQL> SELECT * FROM EMP WHERE TO_CHAR(HIREDATE, 'YY') = 81;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300      
+        30                                                                      
+                                                                                
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500      
+        30                                                                      
+                                                                                
+      7566 JONES      MANAGER         7839 02-APR-81       2975                 
+        20                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400      
+        30                                                                      
+                                                                                
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                 
+        30                                                                      
+                                                                                
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                 
+        10                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7839 KING       PRESIDENT            17-NOV-81       5000                 
+        10                                                                      
+                                                                                
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0      
+        30                                                                      
+                                                                                
+      7900 JAMES      CLERK           7698 03-DEC-81        950                 
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                 
+        20                                                                      
+                                                                                
+
+10 rows selected.
+
+SQL> SELECT HIREDATE FROM EMP WHERE TO_CHAR(HIREDATE, 'DAY') = 'WED';
+
+no rows selected
+
+SQL> SELECT HIREDATE FROM EMP WHERE TO_CHAR(HIREDATE, 'DAY') = '
+  2  SAT';
+
+no rows selected
+
+SQL> SELECT HIREDATE FROM EMP WHERE TO_CHAR(HIREDATE, 'DAY') = '
+  2  
+SQL> SELECT HIREDATE FROM EMP WHERE TO_CHAR(HIREDATE, 'DAY') = 'SUN';
+
+no rows selected
+
+SQL> SELECT HIREDATE FROM EMP WHERE TO_CHAR(HIREDATE,'DAY') = 'TUE';
+
+no rows selected
+
+SQL> SELECT HIREDATE FROM EMP WHERE TO_CHAR(HIREDATE,'DY') = 'TUE';
+
+HIREDATE                                                                        
+---------                                                                       
+09-JUN-81                                                                       
+17-NOV-81                                                                       
+08-SEP-81                                                                       
+
+SQL> SELECT HIREDATE FROM EMP WHERE TO_CHAR(HIREDATE,'DY') ='SAT';
+
+HIREDATE                                                                        
+---------                                                                       
+23-MAY-87                                                                       
+23-JAN-82                                                                       
+
+SQL> SELECT HIREDATE FROM EMP WHERE TO_CHAR(HIREDATE,'DY') ='SUN';
+
+HIREDATE                                                                        
+---------                                                                       
+22-FEB-81                                                                       
+19-APR-87                                                                       
+
+SQL> SELECT HIREDATE FROM EMP WHERE TO_CHAR(HIREDATE,'DD') = 17;
+
+HIREDATE                                                                        
+---------                                                                       
+17-DEC-80                                                                       
+17-NOV-81                                                                       
+
+SQL> SPOOL OFF;

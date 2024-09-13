@@ -1,0 +1,315 @@
+<!-- 
+// print 1 to 10 in for loop
+<script>
+    main();//function call
+    function main()
+    {
+     for (let i=1; i<11;i++)
+         {
+             console.log(i);
+         }
+        
+    }
+</script>
+
+// concatenation: 
+<script>
+    str = ` `
+    n=6
+    str+=n;
+    console.log(str, typeof str,`\nsum of 12+3 is `,12+3)
+    console.log(`value of str is `, str)
+    new_var = str+12
+    console.log(`concatenation of str variable and int 12 is `,new_var, `\ntype is `,typeof new_var)
+    let k
+    console.log(`type of k is `, typeof k, `\nconcatenation of k+1 is `,k+1)
+    
+</script>
+
+// to print numbers in same line we need to do concatenation
+
+<script>
+    let str = ` `
+    for (let n=1;n<=10;n++)
+    {
+      if (n<=9)
+          str=str+n+' '  // str+n here concatenates string with number
+      else
+          str = str+n
+    }
+    
+    console.log(str)
+    
+</script>
+
+
+// print all even numbers between 1 to 20
+<script>
+    main();
+    function main()
+        {
+         let str = ` `
+         for (let i = 1;i<=20; i++)
+            {
+            if (i%2==0)
+                {
+                if (i<=19)
+                    {
+                    str= str+i+' ';
+                    }
+                else
+                    str = str+i;
+                }
+            }
+        console.log(str)    
+        }
+        
+                    
+</script>
+
+<script>
+// break
+    main();
+    function main()
+    {
+        for (let n=1;n<=10;n++)
+        {
+        if (n%2==0)
+            break       // stops the loop
+        console.log(n)  // this is not within if block but inside for block; hence will get executed after the break 
+        }
+    }  
+</script>
+
+<script>
+// return
+    main();
+    function main()
+    {
+        for (let n=1;n<=10;n++)
+        {
+            if (n%2==0)
+                return
+            console.log(n);
+        }
+        console.log("I'm outside the for loop")
+    }
+    console.log("I'm outside the function")
+
+</script>
+
+<script>
+     main();
+    function main()
+    {
+    for (let i=1;i<=5;i++)
+        {
+        for (let j=1;j<=5;j++)
+            {
+                if (i==3 && j ==3 )
+                return
+                console.log(i,j);
+            }
+        }
+    }
+
+</script>
+
+<script>
+// find factors of a given number
+     main();
+    function main()
+    {
+    let n = 10 //prompt('Enter a number: ') -- > to take input at runtime
+    for (let i=1;i<=n;i++)
+        {
+            if ( n%i ==0)
+                console.log(i)
+        }
+    }
+</script>
+
+<script>
+// count factors of a given number
+     main();
+    function main()
+    {
+    let n = 10 //prompt('Enter a number: ') -- > to take input at runtime
+    let count = 0
+    for (let i=1;i<=n;i++)
+        {
+            if ( n%i ==0)
+            {
+                count++
+            }
+        }
+        console.log(count)
+    }
+</script>
+
+<script>
+// check given number is prime number or not -method 1
+    main();
+    function main()
+    {
+        let n = 13 //prompt('Enter a number: ') -- > to take input at runtime
+        for (let i = 2; i<13;i++)
+        {
+            if (n%i==0)
+                return
+            else
+                console.log('The given number is a Prime Number')
+        }
+    }
+</script>
+
+<!-- OR 
+
+<script>
+// check given number is prime number or not - method 2
+    main();
+    function main()
+    {
+        let n = 13 //prompt('Enter a number: ') -- - > to take input at runtime
+        let flag = true;
+        for (let i = 2; i<13;i++)
+        {
+            if (n%i==0)
+            {
+                flag = false;
+                return
+            }
+        }
+    if (flag)
+    console.log('The given number is a Prime Number')
+    else
+    console.log('The given number is Not a Prime Number')
+          
+    }
+</script>
+
+
+<script>
+    // find factors, count it
+    main();
+    function main()
+    {
+        let n = 16 //prompt('Enter a number: ') -- - > to take input at runtime
+        let count=0;
+        for (let i = 2; i<16;i++)
+        {
+            if (n%i==0)
+            {
+                count++;
+                console.log(i)
+            }
+        }
+    console.log(`The total number of factors for the given number is `,count)     
+    }
+    
+</script>
+
+<script>
+    // check given num is perfect or not
+    main();
+    function main()
+    {
+        let n= 8
+        sum = 0
+        for (let i = 1; i<n; i++)
+        {
+            if (n%i==0)
+            {
+                sum+=i
+            }
+        }
+            if (sum==n)
+                console.log('The given number is a Perfect Number')
+            else
+                console.log('The given number is not  a Perfect Number')
+    }
+    
+</script>
+
+HW:
+<script>
+    // to print first 10 fibonacci numbers
+    // to print fibonacci numbers in a given range
+    // 5 alternate fibonacci series
+    // to check given number belongs to fibnocci or not
+    // to check given number is Armstrong or not
+    // to check given number is strong or not
+    // to check given number is palindrome or not
+</script>
+ 
+
+<script>
+//print first 10 fibanocci numbers  [ 0 1 1 2 3 5 8 13 21 34 ] 
+    main();
+    function main()
+    {
+        let n = 1 //prompt('Enter a number: ') -- - > to take input at runtime
+        let a = 0
+        let b = 1
+        console.log(a)
+        console.log(b)
+        for (let i=3; i<=n; i++)
+        {
+            let c = a+b
+            concole.log(c)
+            a=b
+            b=c
+        }
+    }
+</script>
+
+<script>
+// print  fibanocci series/numbers in a given range 
+    main();
+    function main()
+    {
+        let a = 0
+        let b = 1
+        let n = 60 //prompt('Enter a number: ') -- - > to take input at runtime
+        
+        for (; ;)
+        {
+            let c = a+b
+            if (c>=n)
+            {
+                break
+            }
+
+            console.log(c)
+            a=b
+            b=c
+        }
+    }
+</script>
+
+<script>
+    // to check given number is palindrome or not; wrong at n/=10
+    main();
+    function main()
+    {
+        let n = 121
+        let num = n
+        let sum = 0
+        while (n>0)
+        {
+            let d=n%10
+            sum=sum*10+d
+//             console.log(sum)
+            n/=10
+            console.log(n)
+        }
+        if (num==sum)
+            console.log('Number is Palindrome')
+        else
+            console.log('Number is not a Palindrome')
+    }
+</script>
+-->
+
+
+
