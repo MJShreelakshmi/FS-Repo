@@ -1,5 +1,47 @@
 <!--
+<script>
+main();
+    function main()
+    {
+        console.log('main starts')
+        console.log('main ends')
+        return;
+    }
+</script>
+
+<script>
+    function m1()
+    {
+        console.log('m1 starts')
+        console.log('m1 ends')
+        return;
+    }
+</script>
+
+<script>
+// Return statement
+    eg:
+    main()
+    function main()
+    {
+        console.log('main starts')
+        let i = m1();
+        console.log(i)
+        console.log('main ends')
+    }
+    function m1()
+    {
+        console.log(' m1 is executing')
+//         return 10
+//         return true
+        return
+    }
+</script>
+
+<script>
 // Unreachable statements
+</script>
+
 <script>
     main();//function call
     function main()
@@ -18,7 +60,7 @@
         }
 </script>
 
-// Actual anfd formal parameters
+// Actual and formal parameters
 <script>
     main();//function call
     function main()
@@ -217,7 +259,7 @@ let student_1 = {
     console.log(student_2.firstName)
 
 </script>
--->
+
 <script>
 // Dot notation (objRef.prop_name )
     
@@ -240,7 +282,51 @@ let student_1 = {
 
 </script>
 
-
+<script>
+    
+    let student_1 = {
+                    id: 101,
+                    '1':001,
+                    firstName: 'Shree',
+                    lastName: 'Lakshmi',
+                    "full Name": "Shree Lakshmi",
+                    yob : '2003',
+                    age : 21
+                };
+//     console.log(student_1.full Name);  Error
+        console.log(student_1["full Name"]); 
+        console.log('Value when number is used as identifier', student_1['1'])
+    
+        console.log('ph no is ',student_1.phNo); 
+        console.log('address is', student_1['address'])
+        
+</script>
+-->
+<script>
+    // difference b/w bracket and dot notation
+    let student_1 = {
+                    id: 101,
+                    '1':001,
+                    firstName: 'Shree',
+                    lastName: 'Lakshmi',
+                    "full Name": "Shree Lakshmi",
+                    yob : '2003',
+                    age : 21
+                };
+    let searchedData = prompt('Which data are you looking for ?')
+    //console.log(searchedData, typeof searchedData) // suppose: age --> is a string (bcz every dynamic variable is string type)
+    //console.log(student.searchedData)
+    //console.log(student['searchedData'])
+    
+    if (student['searchedData'])
+    {
+        console.log('Searched data = ',+ student[searchedData]
+    }
+    else
+    {
+        console.log('Invalid Search')
+    }                  
+</script>
 
 
 
