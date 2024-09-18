@@ -151,7 +151,7 @@ main();
     main();
     main(1,2);
 </script>
- 
+
 <script>
 // Arrow functions
     let main =()=>
@@ -160,7 +160,7 @@ main();
         console.log('main ends')
     };
     main();
-    
+   
 </script>   
 
 <script>
@@ -301,7 +301,7 @@ let student_1 = {
         console.log('address is', student_1['address'])
         
 </script>
--->
+
 <script>
     // difference b/w bracket and dot notation
     let student_1 = {
@@ -314,7 +314,7 @@ let student_1 = {
                     age : 21
                 };
     let searchedData = prompt('Which data are you looking for ?')
-    //console.log(searchedData, typeof searchedData) // suppose: age --> is a string (bcz every dynamic variable is string type)
+    //console.log(searchedData, typeof searchedData) // suppose: age -- > is a string (bcz every dynamic variable is string type)
     //console.log(student.searchedData)
     //console.log(student['searchedData'])
     
@@ -328,15 +328,105 @@ let student_1 = {
     }                  
 </script>
 
+<script>
+    // Execution Contest
+    main();
+    function main()
+    {
+        var i=1
+        var j= 0
+        j = m1(i++)+m1(++i);
+        console.log(i,j)
+    }
+    function m1(a)
+    {
+        return a++
+    }
+</script>
 
+<script>
+    // Execution Contest
+    function studentDetails(id,sname)
+    {
+        var instName = 'JSP'
+        let branch  = 'Marathahalli'
+        const course = 'Python'
+        
+        function printDetails()
+        {
+            console.log(`student name = ${sname}, student course = ${course}`)
+        }
+        let greetMsg = function()
+        {
+            let msg_1 = 'Good evening'
+            console.log(`Hi ${sname} ${msg_1}`)
+        }
+        greetMsg();
+        
+        var wishMsg = () =>
+        {
+            let msg = `Happy Birthday`
+            console.log(`Hi ${sname} ${msg}`)
+        }
+        wishMsg();
+    }
+    studentDetails(101, 'Ashok')
+</script>
 
+<script>
+    // scopes
+    let name = 'Arun'
+    function studentDetails()
+    {
+        console.log(name)
+        var course = 'Java'
+        let birthYear = 2000
+        
+        if (birthYear >= 2000)
+        {
+            var msg_1 = 'Hi'
+            console.log(msg_1)
+            console.log(name)
+        }
+        console.log(msg_1)
+        console.log(course)
+    }
+    studentDetails()
+    console.log(name)
+</script>
 
-
-
-
-
-
-
+<script>
+    // Lexical Environemnt
+    var n = 10
+    function outer()
+    {
+        var a = 1
+        function inner()
+        {
+            var b = 2
+            console.log(a,b)
+        }
+        inner()
+    }
+    outer()
+</script>
+-->
+<script>
+    var n = 10
+    function outer()
+    {
+        a = 1
+        function inner()
+        {
+            b = 2
+            console.log(a,b)
+        }
+        return inner
+    }
+    let fun = outer()
+    console.log(fun)
+    fun()
+</script>
 
 
 
