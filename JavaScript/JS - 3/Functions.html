@@ -410,7 +410,7 @@ let student_1 = {
     }
     outer()
 </script>
--->
+
 <script>
     var n = 10
     function outer()
@@ -428,8 +428,78 @@ let student_1 = {
     fun()
 </script>
 
+<script>
+    // this keyword
+    //'use strict'
+    let obj1 = this;
+    console.log(obj1)
+    
+    // function declaration
+    function main()
+    {
+        let obj2 = this
+        console.log(obj2)
+    }
+    main()
+    
+    //function expression
+    let m1 = function()
+    {
+        let obj3 = this
+        console.log(obj3)
+    }
+    m1()
+    //Arrow function
+    let m2 = () =>
+    {
+        let obj4 = this
+        console.log(obj4)
+    }
+    m2()
+</script>
 
-
+<script>
+    let student = {
+                        id:101,
+                        sname:'Tarun',
+                        birthYear:2003,
+                        calcAge: function()
+                        {
+                            let obj = this
+                            console.log(obj)
+                            let currentYear = new Date().getFullYear()
+                            let age = currentYear - this.birthYear
+                            console.log(age)
+                        }
+                   }
+    student.calcAge()
+        
+</script>
+-->
+<script>
+    let travels_1 ={
+                    travelsName: 'Orange',
+                    busId:101,
+                    bookings = []
+                    }
+        
+    let travels_2 ={
+                    travelsName: 'VRL',
+                    busId:110,
+                    bookings = []
+                    }
+    let book = function(name, seatNo)
+    {
+        console.log(`Hey ${sname} you booked seat in ${this.travelsName} travels with seat number ${seatNo}`)
+        let pass = {passeneger: `${sname}, ${this.busId}, ${this.travelsName} `}
+        
+        this.bookings.push(pass)
+                    
+    }
+    book.call(travels_1, 'Tarun', 2)
+    book.call(travels_1, 'Arun', 2)
+    
+</script>
 
 
 
