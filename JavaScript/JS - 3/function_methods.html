@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Function Methods</title>
+    </head>
+    <body>
+        <script>
+            function test(){
+                console.log(this)
+            }
+            test() // window
+
+            let user = {name:'virat', age:35}
+            test.call(user) // {name:'virat', age:35}
+
+            let student = {id:'jsp10', name:'Rohit', age:24}
+            test.call(student) // {id:'jsp10', name:'Rohit', age:24}
+
+            let trainer1={
+                name:'Kishor',
+                dob:1994,
+                calAge: function(currentYear){
+                    console.log(currentYear-this.dob)
+                } 
+            }
+            trainer1.calAge(2024)
+
+            let trainer2 = {
+                name:'Vicky',
+                dob:1996
+            }
+
+            // let calAge = trainer1.calAge // window
+            
+            // calAge(2024) //Nan
+
+            //trainer1.calAge.call(trainer2, 2024) //--> 25
+
+            //trainer1.calAge.apply(trainer2, [2024]) // --> 25
+
+            let newFunc = trainer1.calAge.bind(trainer2, 2024) // new function reference
+            // console.log(newFunc)
+            newFunc() 
+        </script>    
+    </body>
+</html>

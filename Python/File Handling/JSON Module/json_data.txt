@@ -1,0 +1,1 @@
+{"name": "lokesh", "age": 20, "mobile": [987, 567], "male": true, "female": false, "occupation": "student"}

@@ -1,0 +1,61 @@
+/* styles.css */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    /* scroll-behavior: smooth; */
+}
+
+.registration-form {
+    margin-top: 60px; /* To offset the fixed nav bar */
+    padding: 20px;
+}
+
+.form-section {
+    margin: 20px 0;
+    padding: 20px;
+    border: 5px solid black;
+    border-radius: 5px;
+    /* background-color: orangered; */
+}
+
+.form-section h2 {
+    margin-top: 0;
+    /* background-color: olivedrab; */
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}

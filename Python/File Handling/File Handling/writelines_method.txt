@@ -1,0 +1,4 @@
+hai
+hello
+bye
+99

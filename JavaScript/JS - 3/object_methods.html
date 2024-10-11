@@ -1,0 +1,53 @@
+<html>
+    <head>    </head>
+    <body>
+        <script>
+            
+            let student = {name:'Rocky', age:27, address :'KGF'}
+
+            // keys
+            let result=Object.keys(student)
+            console.log(result) // ['name', 'age', 'address']
+
+            // values
+            let result2 = Object.values(student)
+            console.log(result2) //  ['Rocky', 27, 'KGF']
+
+            // entries
+            let result3 = Object.entries(student)
+            console.log(result3)
+        </script>
+    </body>
+</html>
+
+<html>
+    <head>
+        <title> Freeze and Seal</title>
+    </head>
+    <body>
+        <script>
+            let student1 = {name:'Rocky', age:27, address :'KGF'}
+            Object.freeze(student1)  // {name: 'Rocky', age: 27, address: 'KGF'}
+            console.log(student1)
+            student.email = 'rocky@gmail.com'
+            console.log(student1) // {name: 'Rocky', age: 27, address: 'KGF'}
+
+            // seal
+            Object.seal(student1)
+            student1.email = 'rocky@gmail.com'
+            console.log(student1) // {name: 'Rocky', age: 27, address: 'KGF'}
+            student1.name = 'Rahul'
+            console.log(student1) // {name: 'Rahul', age: 27, address: 'KGF'} - not expected o/p
+
+
+            // assign
+            let obj = {id:101, mobile:59687846, email:'r@gmail.com'}
+            let result4 = Object.assign(student, obj)
+
+            console.log(result4)  // {name: 'Rocky', age: 27, address: 'KGF', email: 'r@gmail.com', id: 101, …}
+
+            console.log(student1) // {name: 'Rocky', age: 27, address: 'KGF'}
+
+        </script>
+    </body>
+</html>

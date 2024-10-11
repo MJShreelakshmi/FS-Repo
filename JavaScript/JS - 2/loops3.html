@@ -1,0 +1,164 @@
+<!--  WAPT find factors of a given number
+<script>
+    let n=6;
+    function main()
+    {
+     for (i=1; i<=n;i++)
+     {
+         if(n%i==0)
+             console.log(i);
+     }
+    }
+    main();
+</script>
+ -->
+
+<!--  WAPT count number of factors for a given number 
+<script>
+    let n=25
+    let count=0
+    function main()
+    {
+     for (i=1; i<=n;i++)
+     {
+         if(n%i==0)
+         {
+             count++;
+             console.log(i)
+         }
+     }
+        console.log(count)
+    }
+    main();
+</script>
+-->
+<!--  WAPT check given number is prime or not -->
+<!--
+<script>
+    let n=8
+    function main()
+    {
+     for (i=2; i<n;i++)
+     {
+         if(n%i==0)
+         {
+            console.log(`${i} is a factor`) 
+            console.log(`${n} is not a prime number`) 
+         }
+     }
+    }
+    main();
+ 
+    <script>
+    let n=8
+    let count=0
+    function main()
+    {
+     for (i=1; i<=n;i++)
+     {
+         if(n%i==0)
+         {
+            count++ 
+         }
+     }
+    console.log(`count is ${count}`)
+    if (count==2)
+        console.log('Number is prime')
+
+    else
+        console.log('Number is not prime')
+    }
+    main();
+</script> 
+-->  
+<script>
+    let n=6
+    function main()
+    {
+        if (n<2)
+        {
+            console.log(`${n}is not a prime`)
+            return
+        }
+        for (let i=2; i<=Math.trunc(n/2); i++)
+        {
+         if(n%i==0)
+         {
+             console.log(`${n}is not a prime`)
+             return
+         }
+        }
+        console.log(`${n}is prime`)
+    }
+    main();
+</script>
+<!-- WAPT check given number is perfect number or not     -->
+ 
+<script>
+    let n=6
+    let sum=0
+    function main()
+    {
+        for(let i=1;i<n;i++)
+            if (n%i==0)
+            {
+                sum+=i
+            }
+    
+    if (sum==n) console.log(`${n} is a perfect number`)
+    else console.log(`${n} is not a perfect number`)
+    }
+    main();
+</script>
+
+<!-- WAPT check given number belongs to fibonacci series or not (Infinte loop)-->
+<script>
+    function main()
+    {
+     let n=10
+     let a=0
+     let b=1
+     let c=0
+     console.log(a,b)
+     
+    for(;;)  // for(i=3;true) -- ways to create infinite loop
+        {
+            c=a+b
+            if (c>n)
+            {
+              console.log(`${n} does not belong to fibo series`);
+                break  
+            }
+            if(n==0|n===c)
+            {
+            console.log(`${n} belongs to fibo series`);
+                break
+            }
+            a=b
+            b=c  
+        }   
+    }
+    main()
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
