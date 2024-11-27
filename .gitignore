@@ -17,14 +17,13 @@ git.ipynb
 Open Notebook.onetoc2
 Practice.ipynb
 
-activate
+
 activate.fish
 activate.nu
 activate.bat
 activate.ps1
 activate_this.py
 deactivate.bat
-dj_env/
 django-admin.exe
 pip-3.12.exe
 pip.exe
