@@ -1,0 +1,53 @@
+# Ignore all .log files
+*.log
+
+#Ignore the .idea files
+*.idea
+
+#Ignore all the OneNote ( Open Notebook) files
+*Open Notebook
+
+# Ignore the logs directory
+logs/
+
+# Ignore specific file
+Virtual Env.txt
+sql_practice - Copy.txt
+git.ipynb
+Open Notebook.onetoc2
+Practice.ipynb
+
+
+activate.fish
+activate.nu
+activate.bat
+activate.ps1
+activate_this.py
+deactivate.bat
+django-admin.exe
+pip-3.12.exe
+pip.exe
+pip3.12.exe
+pip3.exe
+pydoc.bat
+python.exe
+pythonw.exe
+sqlformat.exe
+
+
+# Ignore the oneNote files
+*onetoc2
+
+# Ignore system files
+.DS_Store
+
+# Ignore node_modules directory
+node_modules/
+
+# Ignore Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore Python cache files
+*.pyc
+__pycache__/
+
