@@ -10,5 +10,5 @@ def bioData(request):
 			<h1>Name: Shreelakshmi<h1>
 			<i> Biodata <i>
 			<b> Sub: Django <b>
-			<img src = 'E://Parrot//DSC_0924.jpg'>''')
+			<img src = 'https://www.freepik.com/premium-ai-image/young-girl-hr-3d-character-young-working-girl-cartoon-character-professional-girl-character_79639230.htm'>''')
 					   					   
