@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        {% if age > 18 %}
+        <h1>You are eligible for voting.</h1>
+        {% elif age >= 13 %}
+            <h1>You are a teenager.</h1>
+        {% else %}
+            <h1>You are a child.</h1>
+        {% endif %}
+
+    </center>
+</body>
+</html>

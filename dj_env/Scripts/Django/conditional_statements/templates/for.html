@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <!-- <h1>For html page</h1>
+        <h1>Hello</h1> -->
+        {% for i in d %}   
+            <h1>{ { i } }:{{ d [ i ] }}</h1>
+        {% endfor %} 
+
+        <!-- {% for var, value in key_value_pairs %}
+            <h1>{{ var }}: {{ value }}</h1>
+        {% endfor %} -->
+    </center>
+</body>
+</html>
