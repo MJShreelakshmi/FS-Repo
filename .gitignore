@@ -17,9 +17,8 @@ git.ipynb
 Open Notebook.onetoc2
 Practice.ipynb
 
-
+D:/Python_FS/FS-Repo/activate
 activate
-activate.txt
 activate.fish
 activate.nu
 activate.bat
@@ -36,7 +35,7 @@ python.exe
 pythonw.exe
 sqlformat.exe
 Lib
-.gitignore
+*.gitignore
 pyvenv.cfg
 
 
