@@ -1,5 +1,3 @@
-Python 3.10.5 (tags/v3.10.5:f377153, Jun  6 2022, 16:14:13) [MSC v.1929 64 bit (AMD64)] on win32
-Type "help", "copyright", "credits" or "license()" for more information.
 d = {'name':'ashu', 'age':3}
 d.keys()
 dict_keys(['name', 'age'])
@@ -12,11 +10,6 @@ id(d)
 2236904524032
 id(d1)
 2236904800192
-d1.cloear()
-Traceback (most recent call last):
-  File "<pyshell#7>", line 1, in <module>
-    d1.cloear()
-AttributeError: 'dict' object has no attribute 'cloear'. Did you mean: 'clear'?
 d1.clear()
 d1
 {}
