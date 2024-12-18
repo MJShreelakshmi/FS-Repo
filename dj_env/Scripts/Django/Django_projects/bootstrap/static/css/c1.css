@@ -1,0 +1,27 @@
+/* gpt */
+:root {
+    --custom-primary: #ff5733;
+    --custom-secondary: #c70039;
+  }
+  
+  .custom-btn {
+    background-color: var(--custom-primary);
+    color: white;
+  }
+  
+  .custom-text {
+    color: var(--custom-primary);
+  }
+
+  clr{
+    background-color: blanchedalmond;
+  }
+
+/* bootstrap website
+.alpha { color: purple; }
+
+.beta {
+  color: yellow-300;
+  background-color: indigo-900;
+} */
+  

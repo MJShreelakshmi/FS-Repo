@@ -1,0 +1,25 @@
+/* gpt */
+:root {
+    --custom-primary: #0695556d;
+    --custom-secondary: #c70039;
+  }
+  
+  .custom-btn {
+    background-color: var(--custom-primary);
+    color: rgb(125, 6, 6);
+  } 
+  
+  /* .custom-text {
+    color: var(--custom-primary);
+  } */
+
+
+
+/* bootstrap website */
+/* .alpha { color: purple; } */
+
+ .beta {
+  color: rgb(227, 239, 8);
+  background-color: rgba(107, 7, 178, 0.662);
+} 
+  
