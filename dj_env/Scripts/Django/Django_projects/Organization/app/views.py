@@ -60,3 +60,30 @@ def insert_emp(request):
 1 104 Rakesh     Sales Executive      6K    2020-06-25  4  101
 3 105 Parker     Testing Engineer     7.5K  2021-02-13 
 '''
+def display_dept(request):
+    LDO = Dept.objects.all()
+    d = {'LDO':LDO}
+    return render(request, 'display_dept.html', d)
+
+def display_emp(request):
+    LEO = Emp.objects.all()
+    d = {'LEO':LEO}
+    return render(request, 'display_emp.html', d)
+
+def joins_select_related(request):
+    # LEDO = Emp.objects.select_related('Dept_No').all()
+    # LEDO = Emp.objects.select_related('Dept_No').all().filter(EName__startswith = 'R')
+    # LEDO = Emp.objects.select_related('Dept_No').filter(Hire_date__year__gt = '2020')
+    # LEDO = Emp.objects.select_related('Dept_No').filter(Mgr__isnull = True)
+    # LEDO = Emp.objects.select_related('Dept_No').filter(Mgr__isnull = False)
+    # LEDO = Emp.objects.select_related('Dept_No').filter(Comm__isnull = True)
+    # LEDO = Emp.objects.select_related('Dept_No').filter(Job__contains = 'Sales', Mgr__isnull = False)
+    # LEDO = Emp.objects.select_related('Dept_No').filter(DName  = 'Sales')
+
+    LEDO = Emp.objects.filter(Dept_No_id = 2)
+    '''
+    In case of a ForeignKey you can specify the field name suffixed with _id. 
+    In this case, the value parameter is expected to contain the raw value of the foreign model’s primary key
+    '''
+    d = {'LEDO':LEDO}
+    return render(request, 'joins_select_related.html',d)
