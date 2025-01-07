@@ -23,5 +23,8 @@ urlpatterns = [
     path('insert_emp/', insert_emp, name = 'insert_emp'),
     path('display_dept/', display_dept, name='display_dept'),
     path('display_emp/', display_emp, name = 'display_emp'),
-    path('joins_select_related/', joins_select_related, name = 'joins_select_related')
+    path('selectRelated_EmpDept/', selectRelated_EmpDept, name = 'selectRelated_EmpDept'),
+    path('selectRelated_EmpMgr/', selectRelated_EmpMgr, name = 'selectRelated_EmpMgr'),
+    path('selectRelated_EmpDeptMgr/', selectRelated_EmpDeptMgr, name = 'selectRelated_EmpDeptMgr'),
+    path('prefetchRelated_DeptEmp/', prefetchRelated_DeptEmp, name = 'prefetchRelated_DeptEmp'),
 ]

@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from app.models import *
 from django.http import HttpResponse
+from django.db.models.functions import Length
+from django.db.models import Q
 
 # Create your views here.
 def insert_dept(request):
@@ -70,7 +72,8 @@ def display_emp(request):
     d = {'LEO':LEO}
     return render(request, 'display_emp.html', d)
 
-def joins_select_related(request):
+def selectRelated_EmpDept(request):    
+    # LEDO = Emp.objects.exclude(Job = 'Developer')
     # LEDO = Emp.objects.select_related('Dept_No').all()
     # LEDO = Emp.objects.select_related('Dept_No').all().filter(EName__startswith = 'R')
     # LEDO = Emp.objects.select_related('Dept_No').filter(Hire_date__year__gt = '2020')
@@ -79,11 +82,60 @@ def joins_select_related(request):
     # LEDO = Emp.objects.select_related('Dept_No').filter(Comm__isnull = True)
     # LEDO = Emp.objects.select_related('Dept_No').filter(Job__contains = 'Sales', Mgr__isnull = False)
     # LEDO = Emp.objects.select_related('Dept_No').filter(DName  = 'Sales')
-
-    LEDO = Emp.objects.filter(Dept_No_id = 2)
+    # LEDO = Emp.objects.select_related('Dept_No').filter(Hire_date__year__gt = '2000', Sal__gt = 2000, Dept_No__Location = 'New delhi' )
+    # LEDO = Emp.objects.filter(Dept_No_id = 2)
     '''
     In case of a ForeignKey you can specify the field name suffixed with _id. 
     In this case, the value parameter is expected to contain the raw value of the foreign model’s primary key
     '''
+    # LEDO = Emp.objects.select_related('Dept_No').filter(Dept_No__in = (1,3))
+    # LEDO = Emp.objects.select_related('Dept_No').filter(Dept_No__DName = 'Sales')
+    # LEDO = Emp.objects.select_related('Dept_No').filter(Dept_No__DName__in = ('Development', 'Testing'))
+    # LEDO = Emp.objects.select_related('Dept_No').exclude(Dept_No__Location = 'Bangalore')
+    # LEDO = Emp.objects.select_related('Dept_No').order_by('-Hire_date')
+    # LEDO = Emp.objects.select_related('Dept_No').order_by('Dept_No__DName')
+    # LEDO = Emp.objects.select_related('Dept_No').order_by(Length('Dept_No__DName').desc())
+    # LEDO = Emp.objects.select_related('Dept_No').filter(Dept_No__DName__regex = 'S\w{0,9}')
+    # LEDO = Emp.objects.select_related('Dept_No').filter(Job__contains = 'sales', Dept_No__Location__startswith = 'N', Mgr__isnull = False)
+    LEDO = Emp.objects.select_related('Dept_No').filter(Emp_No__lte = Emp.objects.filter(EName = 'Raj')[0].Emp_No)
     d = {'LEDO':LEDO}
-    return render(request, 'joins_select_related.html',d)
+    return render(request, 'selectRelated_EmpDept.html',d)
+
+def selectRelated_EmpMgr(request):
+    LEMO = Emp.objects.select_related('Mgr').all()
+    d = {'LEMO':LEMO}
+    return render(request, 'selectRelated_EmpMgr.html',d)
+
+def selectRelated_EmpDeptMgr(request):
+    LEDMO = Emp.objects.select_related('Dept_No', 'Mgr').all()
+    # LEDMO = Emp.objects.select_related('Dept_No', 'Mgr').filter( Q(Job__contains = 'Testing') | Q(Dept_No__DName__contains = 'Testing'))
+    # LEDMO = Emp.objects.select_related('Dept_No', 'Mgr').exclude(Dept_No__in =(1,2))
+    # LEDMO = Emp.objects.select_related('Dept_No', 'Mgr').all().filter(EName__startswith = 'R')
+    # LEDMO = Emp.objects.select_related('Dept_No', 'Mgr').filter(Hire_date__year__gt = '2019')
+    LEDMO = Emp.objects.select_related('Dept_No', 'Mgr').filter(Mgr__isnull = True)
+    # LEDMO = Emp.objects.select_related('Dept_No').filter(Mgr__isnull = False)
+    # LEDMO = Emp.objects.select_related('Dept_No').filter(Comm__isnull = True)
+    # LEDMO = Emp.objects.select_related('Dept_No').filter(Job__contains = 'Sales', Mgr__isnull = False)
+    # LEDMO = Emp.objects.select_related('Dept_No').filter(DName  = 'Sales')
+    # LEDMO = Emp.objects.select_related('Dept_No').filter(Hire_date__year__gt = '2000', Sal__gt = 2000, Dept_No__Location = 'New delhi' )
+    # LEDMO = Emp.objects.filter(Dept_No_id = 2)
+    # LEDMO = Emp.objects.select_related('Dept_No').filter(Dept_No__in = (1,3))
+    # LEDMO = Emp.objects.select_related('Dept_No').filter(Dept_No__DName = 'Sales')
+    # LEDMO = Emp.objects.select_related('Dept_No').filter(Dept_No__DName__in = ('Development', 'Testing'))
+    # LEDMO = Emp.objects.select_related('Dept_No').exclude(Dept_No__Location = 'Bangalore')
+    # LEDMO = Emp.objects.select_related('Dept_No').order_by('-Hire_date')
+    # LEDMO = Emp.objects.select_related('Dept_No').order_by('Dept_No__DName')
+    # LEDMO = Emp.objects.select_related('Dept_No').order_by(Length('Dept_No__DName').desc())
+    # LEDMO = Emp.objects.select_related('Dept_No').filter(Dept_No__DName__regex = 'S\w{0,9}')
+    # LEDMO = Emp.objects.select_related('Dept_No').filter(Job__contains = 'sales', Dept_No__Location__startswith = 'N', Mgr__isnull = False)
+    # LEDMO = Emp.objects.select_related('Dept_No').filter(Emp_No__lte = Emp.objects.filter(EName = 'Raj')[0].Emp_No)
+    
+    d = {'LEDMO':LEDMO}
+    return render (request, 'selectRelated_EmpDeptMgr.html', d)
+
+
+def prefetchRelated_DeptEmp(request):
+    LDEO = Dept.objects.prefetch_related('emp_set').all()   
+    LDEO = Dept.objects.prefetch_related('emp_set').filter(DName = 'Finance')  
+    d = {'LDEO':LDEO}
+    return render(request, 'prefetchRelated_DeptEmp.html', d)

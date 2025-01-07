@@ -61,7 +61,7 @@ def display_topic(request):
 
 def display_webpage(request):
     LWO = Webpage.objects.all()
-    LWO = Webpage.objects.order_by(Length('name'), desc())
+    LWO = Webpage.objects.order_by(Length('url'), desc())
     # LWO = Webpage.objects.filter() 
     #try combining 2 or more functions together, use gt, gte, lt, lte etc  or name startswith and endswith
     d = {'LWO':LWO}

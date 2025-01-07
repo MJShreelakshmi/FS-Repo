@@ -1,27 +1,30 @@
 /* gpt */
 :root {
-    --custom-primary: #ff5733;
+    --custom-primary: #0695556d;
     --custom-secondary: #c70039;
   }
   
   .custom-btn {
     background-color: var(--custom-primary);
-    color: white;
-  }
+    color: rgb(125, 6, 6);
+  } 
   
-  .custom-text {
+  /* .custom-text {
     color: var(--custom-primary);
-  }
+  } */
 
-  clr{
-    background-color: blanchedalmond;
-  }
 
-/* bootstrap website
-.alpha { color: purple; }
 
-.beta {
-  color: yellow-300;
-  background-color: indigo-900;
-} */
+/* bootstrap website */
+/* .alpha { color: purple; } */
+
+ .beta {
+  color: rgb(229, 37, 114);
+  background-color: rgba(107, 7, 178, 0.662);
+} 
   
+.aspect-ratio-box {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  object-fit: cover;
+}

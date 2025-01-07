@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joins using Prefetch-related</title>
+    <!-- <style>
+     /*   h2{
+            color: rgb(32, 10, 114);
+            background-color: rgb(217, 217, 248);
+            /* border-radius:5px 25px; */
+    /*        display: inline-block;            
+        } */
+    </style> -->
+    <link rel="stylesheet" href="{% static 'css/c1.css' %}">
+</head>
+<body>
+    <center>
+        <h1 style="color: white; background-color: rgb(37, 37, 111); border-radius:5px 25px ">Joining Dept and Emp using prefetch_related</h1>
+        {% for deo in LDEO %}
+            <h2 class="custom">Dept Number is {{deo.Dept_No}}<br>
+                Dept Name is {{deo.DName}}<br>
+                Dept Location is {{deo.Location}} </h2> 
+                <table border="2px">
+                    <tr style="background-color:rgba(129, 224, 13, 0.648); color: rgb(4, 105, 4)">
+                        <th>Emp_No</th>
+                        <th>EName</th>
+                        <th>Job</th>
+                        <th>Sal</th>
+                        <th>Mgr</th>
+                        <th>Comm</th>
+                    </tr>
+                    {% for eo in deo.emp_set.all %}
+                        <tr>
+                            <td>{{eo.Emp_No}}</td>
+                            <td>{{eo.EName}}</td>
+                            <td>{{eo.Job}}</td>
+                            <td>{{eo.Sal}}</td>
+                            <td>{{eo.Mgr.Emp_No}} {{eo.Mgr.EName}}</td>
+                            <td>{{eo.Comm}}</td>
+                        </tr>
+                    {% endfor %}
+                </table>    
+        {% endfor %}        
+    </center>
+</body>
+</html>

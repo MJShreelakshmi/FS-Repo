@@ -19,7 +19,15 @@
 /* .alpha { color: purple; } */
 
  .beta {
-  color: rgb(227, 239, 8);
-  background-color: rgba(107, 7, 178, 0.662);
+  color: rgb(220, 239, 8);
+  background-color: rgba(237, 8, 119, 0.947);
 } 
   
+/* .aspect-ratio-box {
+  /* aspect-ratio: .75/0.5; */
+  /* height: 65%; */
+  /* width: 65%; */
+  /* object-fit: cover; 
+}*/
+ 
+

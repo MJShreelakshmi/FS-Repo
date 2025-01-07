@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Joins using select_related</title>
 </head>
 <body>
     <center>
@@ -19,10 +19,11 @@
                 <th>Comm</th>
                 <th>Dept_No</th>
                 <th>DName</th>
-                <th>Loc</th>
+                <th>Location</th>
                 <th>Dept_No</th>
             </tr>
             <tbody>
+                
                 {% for edo in LEDO %}
                 <tr>
                     <td>{{edo.Emp_No}}</td>
