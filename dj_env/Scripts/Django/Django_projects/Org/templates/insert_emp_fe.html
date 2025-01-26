@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee</title>
+</head>
+<body>
+    <center>
+        <h1>Employee Form</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="eno">Employee Id</label>
+            <input type="number" name="Emp_No" id="eno">
+            <br><br>
+
+            <label for="ena">Employee Name</label>
+            <input type="text" name="EName" id="ena">
+            <br><br>
+            <label for="jo">Employee Designation</label>
+            <input type="text" name="Job" id="jo">
+            <br><br>
+
+            <label for="mg">Manager</label>
+            <select name="Mgr" id="mg"> <!-- None as Mgr -->
+                {% for EO in LEO.LEO %}
+                    {{EO}}
+                    <option value="{{EO.Emp_No}}">{{EO.Emp_No}}</option>
+                {% endfor %}
+            </select>
+            <br><br>
+            <label for="date">Hire Date</label>
+            <input type="date" name="Hire_date" id="date">
+            <br><br>
+            <label for="sal">Salary</label>
+            <input type="number" name="Sal" id="sal">
+            <br><br>
+            <label for="com">Commission</label>
+            <input type="number" name="Comm" id="com">
+            <br><br>
+            <label for="dno">Department Number</label>
+            <select name="Dept_No" id="dno">
+                {% for DO in LDO.LDO %}
+                    <option value="{{DO.Dept_No}}">{{DO.Dept_No}}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+    </center>
+</body>
+</html>

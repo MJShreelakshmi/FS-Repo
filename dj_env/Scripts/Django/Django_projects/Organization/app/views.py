@@ -2,7 +2,7 @@ from django.shortcuts import render
 from app.models import *
 from django.http import HttpResponse
 from django.db.models.functions import Length
-from django.db.models import Q
+from django.db.models import Q, Prefetch, Max, Min, Count, Avg, Sum
 
 # Create your views here.
 def insert_dept(request):
@@ -139,3 +139,112 @@ def prefetchRelated_DeptEmp(request):
     LDEO = Dept.objects.prefetch_related('emp_set').filter(DName = 'Finance')  
     d = {'LDEO':LDEO}
     return render(request, 'prefetchRelated_DeptEmp.html', d)
+
+def prefetchRelated_2(request):
+    LDEO_2 = Dept.objects.prefetch_related('emp_set').all()   
+    # all dept objects and related emp objects are fetched
+
+    LDEO_2 = Dept.objects.prefetch_related('emp_set').filter(Dept_No = 1)  
+    # only dept 10 object with all the related emp objects
+
+    LDEO_2 = Dept.objects.prefetch_related(Prefetch('emp_set', queryset = Emp.objects.filter(EName = 'Raj')))
+    # all dept objects but only Raj Emp object
+
+    # DN = Emp.objects.filter(EName = 'Raj')[0].Dept_No.Dept_No
+    
+    ''' EXTRACTING COLUMN VALUES USING values FUNCTION '''
+    L = Emp.objects.filter(EName = 'Raj').values('EName', 'Dept_No')
+    # print(DN)
+    # for d in DN:             #for loop on the query set of values
+    #     for key in d:
+    #         print(d[key])
+
+    ''' OR USING values_list FUNCTION '''
+    L = Emp.objects.filter(EName__in = ('Raj', 'Rakesh')).values_list('EName', 'Job')
+    # print(L)
+    # for tup in L:
+    #     for i in tup:
+    #         print(i)
+
+    DN = Emp.objects.filter(EName = 'Raj').values_list('Dept_No')[0][0]
+    # print(DN)
+    LDEO_2 = Dept.objects.filter(Dept_No = DN).prefetch_related(Prefetch('emp_set', queryset = Emp.objects.filter(EName = 'Raj')))
+    # to extract dept object 10 and emp object Raj 
+    d = {'LDEO_2':LDEO_2}
+    return render(request, 'prefetchRelated_2.html',d)
+
+def aggregate_emp(request):
+    # LEO = Emp.objects.all()
+    '''Annotate method'''
+    LEO = Emp.objects.annotate(NL = Length('EName')).filter(NL__gte = 5).values_list('EName')
+    LEO = Emp.objects.aggregate(Max('Sal'))['Sal__max']
+    
+    # to find the emps with sal greater than avg sal in dept 10
+    avg_sal = Emp.objects.filter(Dept_No = 1).aggregate(Avg('Sal'))['Sal__avg']
+    LEO = Emp.objects.filter(Sal__gte = avg_sal)
+    d = {'LEO':LEO}
+    return render(request, 'display_emp.html',d)
+
+def update_emp(request):
+    '''Group by using Annotate''' 
+    # to find Avg Sal in each Dept
+    a=Emp.objects.values('Dept_No').annotate (Avg('Sal'))#.aggregate(Max('Sal'))
+    print(a)
+
+    '''UPDATE'''
+    '''signle row updation; Note that update query returns the number of rows that got updated(So, need not use a variable to store its results)'''
+    # Emp.objects.filter(EName = 'Nayana').update(Emp_No = 114)
+    '''Multiple row updation with single value'''
+    # Emp.objects.filter(Job__contains = 'Sales').update(Comm = 15) # signle value
+    '''Multiple row updation with different values'''
+    from django.db.models import Case, When, Value
+    Emp.objects.filter(Emp_No__in=[101, 103]).update(
+    EName=Case(
+        When(Emp_No=101, then=Value('Kishan')),
+        When(Emp_No=103, then=Value('Sagar')),
+        default=Value(''),  # Default value if none of the conditions match (optional)
+        output_field=models.CharField()  ))# Specify the field type
+             
+    '''No rows to update'''
+    Emp.objects.filter(Job = 'Digital Marketer').update(Sal = 1500) # no updation and no error as well   
+    '''Updating FK column with existing value from Parent table'''
+    Emp.objects.filter(EName = 'Smith').update(Dept_No = 4)
+    '''Updating FK column with new value that is not present in the Parent table'''
+    # Emp.objects.filter(EName = 'Smith').update(Dept_No = 5)  # error due FK constraint
+    
+    '''UPDATE_OR_CREATE'''
+    '''Single row updation'''
+    Emp.objects.update_or_create(EName = 'Rakesh', defaults = {'Comm': 18})
+    Emp.objects.update_or_create(Emp_No__in = (101,), defaults = {'EName': 'Kishan'})
+    '''Multiple row updation''' # Error
+    # Emp.objects.update_or_create(Emp_No__in = (101,103),defaults = {'EName': ['Kishan','Sagar']})
+    # Emp.objects.update_or_create(Job__contains = 'Developer',defaults = {'Comm':13})
+
+    '''Upadating FK Column'''
+    # Emp.objects.update_or_create(EName = 'Rakesh', defaults={'Dept_No':4})
+    DO = Dept.objects.get(Dept_No = 4) # OR Dept.objects.filter(Dept_No = 4)[0]
+    MO = Emp.objects.filter(Job = 'Sales Manager')[0] # OR Emp.objects.filter(Job = 'Sales Manager')[0]
+    Emp.objects.update_or_create(EName= 'Rakesh', defaults={'Dept_No':DO, 'Mgr': MO})
+
+    '''UPDATING THE TABLE WITH A NEW VALUE''' # provide values for all the non-null columns 
+    Emp.objects.update_or_create(Emp_No = 115, EName = 'Ashwin', defaults={'Mgr':MO, 'Dept_No':DO, 'Sal':5000})
+    
+    LEO = Emp.objects.all() #filter(Job__contains = 'Sales')
+    d = {'LEO':LEO}
+    return render(request, 'display_emp.html',d)
+
+
+def delete_emp(request): 
+    # Emp.objects.filter(EName = 'Sagar').delete() # Deleting a normal column
+    # Emp.objects.filter(Emp_No = 106).delete()
+    # Dept.objects.filter(Dept_No = 1).delete() # on_delete = models.CASCADE in child tables
+    # Emp.objects.filter(Dept_No = Dept.objects.filter(Dept_No =  1))
+
+    
+    Emp.objects.filter(Mgr = Emp.objects.filter(Emp_No = 102)[0]).delete()
+    LEO = Emp.objects.filter()
+    # LEO = Emp.objects.all()
+    # print(Emp.objects.filter(EName = 'Kiran'))
+    d = {'LEO':LEO}
+    return render(request, 'display_emp.html', d)
+

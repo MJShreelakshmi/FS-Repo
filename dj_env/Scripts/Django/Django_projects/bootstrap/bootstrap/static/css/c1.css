@@ -18,11 +18,16 @@
 /* bootstrap website */
 /* .alpha { color: purple; } */
 
- .beta {
-  color: rgb(220, 239, 8);
+ h1 {
+  color: rgb(114, 89, 5); 
+  background-color: rgba(229, 44, 201, 0.32);
+} 
+ 
+h2 {
+  color: rgb(47, 51, 5);
   background-color: rgba(237, 8, 119, 0.947);
 } 
-  
+
 /* .aspect-ratio-box {
   /* aspect-ratio: .75/0.5; */
   /* height: 65%; */

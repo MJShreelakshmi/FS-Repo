@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joins using select_related</title>
+</head>
+<body>
+    <center>
+        <h1>Joins using select_related</h1>
+        <table border="3px">
+            <tr>
+                <th>Emp_No</th>
+                <th>EName</th>
+                <th>Job</th>
+                <th>Mgr</th>
+                <th>Hire_date</th>
+                <th>Sal</th>
+                <th>Comm</th>
+                <th>Dept_No</th>
+                <th>DName</th>
+                <th>Location</th>
+                <th>Dept_No</th>
+            </tr>
+            <tbody>
+                
+                {% for edo in LEDO %}
+                <tr>
+                    <td>{{edo.Emp_No}}</td>
+                    <td>{{edo.EName}}</td>
+                    <td>{{edo.Job}}</td>
+                    <td>{{edo.Mgr.Emp_No}}</td>
+                    <td>{{edo.Hire_date}}</td>
+                    <td>{{edo.Sal}}</td>
+                    <td>{{edo.Comm}}</td>
+                    <td>{{edo.Dept_No}}</td>
+                    <td>{{edo.Dept_No.DName}}</td>
+                    <td>{{edo.Dept_No.Location}}</td>
+                    <td>{{edo.Dept_No.Dept_No}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </center>
+</body>
+</html>

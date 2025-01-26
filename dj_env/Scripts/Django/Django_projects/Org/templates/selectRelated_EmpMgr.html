@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emp_Mgr Self-Joins</title>
+</head>
+<body>
+    <center>
+        <h1>Self-Joins using select_related</h1>
+        <table border="3px">
+            <tr>
+                <th>Emp_No</th>
+                <th>EName</th>
+                <th>Job</th>
+                <th>Mgr</th>
+                <th>Hire_date</th>
+                <th>Sal</th>
+                <th>Comm</th>
+                <th>Dept_No</th>
+                <th>Mgr_Name</th>
+                <th>Mgr_Id</th>
+                <th>Mgr_Designation</th>
+                <!-- <th>Mgr_Hire_date</th>
+                <th>Mgr_Sal</th>
+                <th>Mgr_Comm</th> -->
+            </tr>
+            <tbody>
+                
+                {% for emo in LEMO %}
+                <tr>
+                    <td>{{emo.Emp_No}}</td>
+                    <td>{{emo.EName}}</td>
+                    <td>{{emo.Job}}</td>
+                    <td>{{emo.Mgr.Emp_No}}</td>
+                    <td>{{emo.Hire_date}}</td>
+                    <td>{{emo.Sal}}</td>
+                    <td>{{emo.Comm}}</td>
+                    <td>{{emo.Dept_No}}</td>
+                    <td>{{emo.Mgr.EName}}</td>
+                    <td>{{emo.Mgr.Emp_No}}</td>
+                    <td>{{emo.Mgr.Job}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </center>
+</body>
+</html>

@@ -27,4 +27,8 @@ urlpatterns = [
     path('selectRelated_EmpMgr/', selectRelated_EmpMgr, name = 'selectRelated_EmpMgr'),
     path('selectRelated_EmpDeptMgr/', selectRelated_EmpDeptMgr, name = 'selectRelated_EmpDeptMgr'),
     path('prefetchRelated_DeptEmp/', prefetchRelated_DeptEmp, name = 'prefetchRelated_DeptEmp'),
+    path('prefetchRelated_2/', prefetchRelated_2, name = 'prefetchRelated_2'),
+    path('aggregate_emp/', aggregate_emp, name='aggregate_emp'),
+    path('update_emp/', update_emp, name = 'update_emp'),
+    path('delete_emp/', delete_emp, name = 'delete_emp'),
 ]

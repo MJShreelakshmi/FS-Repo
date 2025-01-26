@@ -26,4 +26,8 @@ urlpatterns = [
     path('display_topic/', display_topic, name = 'display_topic'),
     path('display_webpage/', display_webpage, name = 'display_webpage'),
     path('display_records/', display_records, name = 'display_records'),
+    path('insert_topic_fe/', insert_topic_fe, name = 'insert_topic_fe'),
+    path('insert_webpage_fe/',insert_webpage_fe, name = 'insert_webpage_fe'),
+    path('insert_records_fe/',insert_records_fe, name = 'insert_records_fe'),
+    path('select_multiple/', select_multiple, name = 'select_multiple'),
 ]

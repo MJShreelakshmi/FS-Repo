@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department</title>
+</head>
+<body>
+    <center>
+        <h1>Department</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="dNo">Department Number</label>
+            <input type="text" name="Dept_No" id="dNo">
+            <br><br>
+
+            <label for="dna">Department Name</label>
+            <input type="text" name="DName" id="dna">
+            <br><br>
+
+            <label for="loc">Location</label>
+            <input type="text" name="Location" id="loc">
+            <br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </center>
+</body>
+</html>
